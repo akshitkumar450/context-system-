@@ -5,10 +5,12 @@ export default class Button extends Component {
     static contextType = LanguageContext;
 
     render() {
-        console.log(this.context);
+        // console.log(this.context);
+        const text = this.context === 'english' ? 'submit' : 'voorleggen'
+
         return (
             <div>
-                <button className='ui button primary'>submit</button>
+                <button className='ui button primary'>{text}</button>
             </div>
         )
     }
