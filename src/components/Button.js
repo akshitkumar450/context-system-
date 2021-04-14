@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import LanguageContext from '../contexts/LanguageContext'
+import ColorContext from '../contexts/ColorContext'
+
 export default class Button extends Component {
     // we are adding a property to class 
     // static contextType = LanguageContext;
@@ -10,13 +12,20 @@ export default class Button extends Component {
         // console.log(this.context);
         // const text = this.context === 'english' ? 'submit' : 'voorleggen'
 
+        // consumer only require one function
         return (
             <div>
-                <button className='ui button primary'>
-                    <LanguageContext.Consumer>
-                        {(value) => value === 'english' ? 'submit' : 'voorleggen'}
-                    </LanguageContext.Consumer>
-                </button>
+                <ColorContext.Consumer>
+                    {(color) =>
+                        <button className={`ui button ${color}`} >
+                            <LanguageContext.Consumer>
+                                {(value) => value === 'english' ? 'submit' : 'voorleggen'}
+                            </LanguageContext.Consumer>
+                        </button>
+                    }
+
+                </ColorContext.Consumer>
+
             </div>
         )
     }
