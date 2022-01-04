@@ -4,7 +4,7 @@ import LanguageContext from '../contexts/LanguageContext'
 export default class Field extends Component {
     static contextType = LanguageContext;
     render() {
-        const text = this.context === 'english' ? 'name' : 'naam'
+        const text = this.context.language === 'english' ? 'name' : 'naam'
         return (
             <div className='ui field'>
                 <label>{text}</label>
